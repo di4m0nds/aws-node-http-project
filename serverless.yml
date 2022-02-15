@@ -5,20 +5,28 @@ provider:
   name: aws
   runtime: nodejs14.x
   region: us-west-2
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:*
-      Resource:
-        - arn:aws:dynamodb:us-west-2:409994753771:table/TodoTable
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:*
+          Resource:
+            - arn:aws:dynamodb:us-west-2:409994753771:table/TodoTable
 
 functions:
   hello:
-    handler: handler.hello
+    handler: functions/hello.hello
     events:
       - httpApi:
           path: /
           method: get
+  createReminder:
+    handler: functions/addRemainder.addRemainder
+    events:
+      - httpApi:
+          path: /todo
+          method: post
 
 resources:
   Resources:
