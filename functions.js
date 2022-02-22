@@ -29,16 +29,13 @@ const loadAllMovies = (docClient) => {
 }
 
 // Create a New Item
-const createItem = (docClient) => {
+const createItem = (docClient, { year, title, info }) => {
   let params = {
     TableName: "Movies",
     Item:{
-      "year": 2012,
-      "title": "The End",
-      "info":{
-        "plot": "Nothing happens at all.",
-        "rating": 3
-      }
+      "year": year,
+      "title": title,
+      "info": info
     }
   }
   console.log("Adding a new item ...")
@@ -46,13 +43,31 @@ const createItem = (docClient) => {
     if (err) {
       console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2))
     } else {
-      console.log("Added item:", JSON.stringify(data, null, 2))
+      console.log("\nAdded item:", JSON.stringify(data, null, 2))
     }
   })
 }
 
+// Read an Item
+const readItem = (docClient, { year, title }) => {
+  let params = {
+    TableName: "Movies",
+    Key: {
+      "year": year,
+      "title": title
+    }
+  }
+  docClient.get(params, (err, data) => {
+    if (err) {
+      console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2))
+    } else {
+      console.log("\nGetItem succeeded:\n\n", JSON.stringify(data, null, 2))
+    }
+  })
+}
 
 export {
   loadAllMovies,
-  createItem
+  createItem,
+  readItem
 }
