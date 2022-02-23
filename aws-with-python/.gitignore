@@ -1,0 +1,5 @@
+# Package directories
+__pycache__
+
+# Environment variables
+.env
