@@ -2,6 +2,7 @@
 
 #### Links than i used in this example
 * [Getting Started](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/GettingStarted.Python.html)
+* Find Error for pylint [here](https://vald-phoenix.github.io/pylint-errors/)
 
 ### To run
 ```bash
