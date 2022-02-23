@@ -1,4 +1,4 @@
-<h2 align="center"> NodeJS and DynamoDB </h2>
+<h2 align="center"> Python and DynamoDB </h2>
 
 #### Links than i used in this example
 * [Getting Started](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/GettingStarted.Python.html)
