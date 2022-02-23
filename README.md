@@ -7,7 +7,7 @@
 * [Getting Started](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/GettingStarted.html)
 > In this examples I don't use the downloadable version of DynamoDB, [Read the summary](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.Summary.html)
 
-<h4 align="center"> Important! </h4>
+<h4 align="center">Important!</h4>
 
 To use this application you need an AWS Account and create a user and group for set permissions to that user.
 
