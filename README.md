@@ -1,4 +1,7 @@
-<h2 align="center"> Getting Started with AWS SDK -DynamoDB- </h2>
+<h2 align="center">Getting Started with AWS SDK DynamoDB</h2>
+
+#### Here are two version, for NodeJs and Python
+> both version can `create, read, update and delete` (CRUD)
 
 #### Links for SDK
 * [Getting Started](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/GettingStarted.html)
