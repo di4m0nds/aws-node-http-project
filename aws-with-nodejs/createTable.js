@@ -1,12 +1,12 @@
 const params = {
-  TableName: "Movies",
+  TableName: 'Movies',
   KeySchema: [
-    { AttributeName: "year", KeyType: "HASH" },
-    { AttributeName: "title", KeyType: "RANGE" }
+    { AttributeName: 'year', KeyType: 'HASH' },
+    { AttributeName: 'title', KeyType: 'RANGE' }
   ],
   AttributeDefinitions: [
-    { AttributeName: "year", AttributeType: "N" },
-    { AttributeName: "title", AttributeType: "S" }
+    { AttributeName: 'year', AttributeType: 'N' },
+    { AttributeName: 'title', AttributeType: 'S' }
   ],
   ProvisionedThroughput: {
     ReadCapacityUnits: 10,
@@ -18,15 +18,14 @@ const createTable = async (dynamodb) => {
   await dynamodb.createTable(params, (err, data) => {
     if (err) {
       console.error(
-        "Unable to create table. Error JSON:\n\n",
+        'Unable to create table. Error JSON:\n\n',
         JSON.stringify(err, null, 2)
-      );
-    }
-    else {
+      )
+    } else {
       console.log(
-        "Created table. Table description JSON:\n\n",
+        'Created table. Table description JSON:\n\n',
         JSON.stringify(data, null, 2)
-      );
+      )
     }
   })
 }

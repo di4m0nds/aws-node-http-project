@@ -1,27 +1,29 @@
 import AWS from 'aws-sdk'
 import 'dotenv/config'
-
 import { createTable } from './createTable.js'
 import {
-  loadAllMovies,
+//  loadAllMovies,
   createItem,
   readItem
 } from './functions.js'
 
-// AWS Configuration
+const region = 'us-west-2'
+const endpoint = process.env.AWS_ENDPOINT
+
+// ==================== AWS Configuration ====================
 const AWS_CONFING = {
-  region: process.env.AWS_REGION,
-  endpoint: process.env.AWS_ENDPOINT
+  region: region,
+  endpoint: endpoint
 }
 AWS.config.update(AWS_CONFING)
 
-// Create table in dynamodb
+// ==================== Create table in dynamodb ====================
 const dynamodb = new AWS.DynamoDB()
 createTable(dynamodb)
 
-// Functions
+// ==================== Functions ====================
 const docClient = new AWS.DynamoDB.DocumentClient()
-loadAllMovies(docClient)
+// loadAllMovies(docClient)
 
 createItem(docClient, {
   year: 2012,
