@@ -2,9 +2,11 @@ import AWS from 'aws-sdk'
 import 'dotenv/config'
 import { createTable } from './createTable.js'
 import {
-//  loadAllMovies,
+  loadAllMovies,
   createItem,
-  readItem
+  readItem,
+  updateItem,
+  deleteItem
 } from './functions.js'
 
 const region = 'us-west-2'
@@ -36,5 +38,15 @@ createItem(docClient, {
 
 readItem(docClient, {
   year: 2012,
-  title: 'The End'
+  title: 'The end'
+})
+
+updateItem(docClient, {
+  year: 2012,
+  title: 'The end'
+})
+
+deleteItem(docClient, {
+  year: 2012,
+  title: 'The end'
 })
