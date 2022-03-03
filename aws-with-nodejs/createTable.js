@@ -17,10 +17,14 @@ const params = {
 const createTable = async (dynamodb) => {
   await dynamodb.createTable(params, (err, data) => {
     if (err) {
-      console.error(
-        'Unable to create table. Error JSON:\n\n',
-        JSON.stringify(err, null, 2)
-      )
+      if (err.code === 'ResourceInUseException') {
+        console.log(`\nIt's not possible to create a table. ${err.message}\n`)
+      } else {
+        console.error(
+          'Unable to create table. Error JSON:\n\n',
+          JSON.stringify(err, null, 2)
+        )
+      }
     } else {
       console.log(
         'Created table. Table description JSON:\n\n',
